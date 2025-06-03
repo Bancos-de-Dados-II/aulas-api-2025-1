@@ -9,6 +9,8 @@ testar();
 
 async function testar(){
     await client.connect();
-    const ping = await client.ping();
-    console.log(ping);
+    await client.set('joaoPaulo', 'Faz a boa',{
+        EX: 60
+    });
+    console.log('A boa foi feita');
 }
