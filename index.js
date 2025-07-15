@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import TaskRouter from './router/task-router.js';
+import UsuarioRouter from './router/user-router-mongo.js';
 import client from './database/redis.js';
 
 const app = express();
@@ -26,7 +26,7 @@ app.use(async (req,res,next)=>{
     next();
 });
 
-// app.use('/tasks', TaskRouter);
+app.use('/usuarios', UsuarioRouter);
 
 app.listen(port, () => {
   console.log(`App de exemplo esta rodando na porta ${port}`)
