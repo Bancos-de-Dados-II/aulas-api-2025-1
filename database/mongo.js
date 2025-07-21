@@ -1,10 +1,11 @@
 import mongoose from 'mongoose';
+import dotenv from 'dotenv';
+dotenv.config();
 
 //Conectando ao MongoDB
 main();
 async function main() {
-    await mongoose.connect(
-        'mongodb://localhost:27017/aula');
+    await mongoose.connect(process.env.ATLAS_URL);
     console.log('Conectado ao MongoDB');
 }
 
