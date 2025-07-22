@@ -9,3 +9,10 @@ export async function getTasks(req,res){
     const tasks = await Task.find();
     res.status(200).json(tasks);
 }
+
+export async function findTask(req, res){
+    const texto = req.params.q;
+    const tasks = await Task.find(
+        {$text:{$search: texto}});
+    res.status(200).json(tasks);
+}
